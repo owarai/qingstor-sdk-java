@@ -12,6 +12,7 @@ All notable changes to QingStor SDK for JAVA will be documented in this file.
 
 - Refactor `fillResponseValue2Object` to clarify `ResponseBody` ownership and improve resource management for binary/streaming responses.
 - Adjust Maven shade plugin configurations for better relocation and dependency handling.
+- Migrate to Sonatype Central Publishing Portal and update `central-publishing-maven-plugin` (Manual publish mode enabled).
 
 ### Fixed
 
