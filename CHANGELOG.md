@@ -2,6 +2,16 @@
 
 All notable changes to QingStor SDK for JAVA will be documented in this file.
 
+## [v2.6.8] - 2026-07-14
+
+### Changed
+
+- Align shaded jar release policy and configure maven-shade-plugin settings.
+
+### Fixed
+
+- Update jackson to 2.18.8 to address CVE-2026-54512.
+
 ## [v2.6.7] - 2026-05-08
 
 ### Added
