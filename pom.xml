@@ -321,18 +321,19 @@
                         </executions>
                         <configuration>
                             <shadedArtifactAttached>false</shadedArtifactAttached>
+                            <finalName>${project.artifactId}-${project.version}-shaded</finalName>
+                            <!-- Temporary classifier avoids finalName self-renaming; it is not attached. -->
+                            <shadedClassifierName>shade-work</shadedClassifierName>
                             <artifactSet>
                                 <excludes>
                                     <exclude>org.slf4j:slf4j-api</exclude>
-                                    <exclude>junit:junit</exclude>
                                 </excludes>
                             </artifactSet>
                             <createDependencyReducedPom>true</createDependencyReducedPom>
                             <dependencyReducedPomLocation>
-                                ${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
-
-                            <createSourcesJar>true</createSourcesJar>
-                            <shadeSourcesContent>true</shadeSourcesContent>
+                                ${project.build.directory}/dependency-reduced-pom.xml
+                            </dependencyReducedPomLocation>
+                            <useDependencyReducedPomInJar>true</useDependencyReducedPomInJar>
                             <relocations>
                                 <relocation>
                                     <pattern>okhttp3</pattern>
@@ -372,15 +373,6 @@
                                         <Implementation-Title>${project.name}</Implementation-Title>
                                         <Implementation-Version>${project.version}</Implementation-Version>
                                     </manifestEntries>
-                                </transformer>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
-                                    <resources>
-                                        <resource>META-INF/MANIFEST.MF</resource>
-                                        <resource>META-INF/LICENSE</resource>
-                                        <resource>META-INF/NOTICE</resource>
-                                        <resource>META-INF/maven</resource>
-                                    </resources>
                                 </transformer>
                             </transformers>
                             <filters>
